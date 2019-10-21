@@ -19,6 +19,7 @@ struct Leader: Hashable, Codable, Identifiable {
     var party: String
     var image_name: String
     var biography: String
+    var website: String
 }
 
 extension Leader {

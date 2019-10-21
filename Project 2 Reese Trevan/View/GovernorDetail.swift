@@ -11,7 +11,7 @@ import SwiftUI
 struct GovernorDetail: View {
     var governor: Governor
     
-    @State private var showWebsiteModal = false
+    @State var showWebsiteModal = false
     
     var body: some View {
         NavigationView {
@@ -29,18 +29,18 @@ struct GovernorDetail: View {
                         .font(.headline)
                 }
 
-                    HStack(alignment: .top) {
-                        Text("\(governor.entered_office) to \(governor.term_end)")
-                            .font(.subheadline)
-                        Spacer()
-                        Text(governor.party.capitalized)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    }
+                HStack(alignment: .top) {
+                    Text("\(governor.entered_office) to \(governor.term_end)")
+                        .font(.subheadline)
+                    Spacer()
+                    Text(governor.party.capitalized)
+                    .font(.footnote)
+                    .foregroundColor(.gray)
                 }
-                .padding()
-                Text(governor.biography)
-                    .font(.body).padding()
+            }
+            .padding()
+            Text(governor.biography)
+                .font(.body).padding()
             }
         }
         .navigationBarTitle(Text(governor.name), displayMode: .inline)
@@ -50,8 +50,18 @@ struct GovernorDetail: View {
             Image(systemName: "globe")
                 .imageScale(.large)
         }).sheet(isPresented: self.$showWebsiteModal) {
-            Webpage() {
-                self.showWebsiteModal = false
+            NavigationView {
+                Webpage(request: URLRequest(url: self.governor.website.url))
+                    //self.showWebsiteModal = false
+                .navigationBarTitle("\(self.governor.website)")
+                .navigationBarItems(leading: Button(action: {
+                    self.showWebsiteModal = false
+                })
+                {
+                    Text("Done")
+                    .fontWeight(.bold)
+                }
+                )
             }
         }
     }

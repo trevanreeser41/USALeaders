@@ -21,6 +21,7 @@ struct Senator: Hashable, Codable, Identifiable {
     var party: String
     var biography: String
     var photo_url: String
+    var website: String
 }
 
 extension Senator {

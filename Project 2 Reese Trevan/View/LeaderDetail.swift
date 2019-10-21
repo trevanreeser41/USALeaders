@@ -11,7 +11,7 @@ import SwiftUI
 struct LeaderDetail: View {
     var leader: Leader
     
-    @State private var showWebsiteModal = false
+    @State var showWebsiteModal = false
     
     var body: some View {
         NavigationView {
@@ -45,8 +45,18 @@ struct LeaderDetail: View {
             Image(systemName: "globe")
                 .imageScale(.large)
         }).sheet(isPresented: self.$showWebsiteModal) {
-            Webpage() {
-                self.showWebsiteModal = false
+            NavigationView {
+                Webpage(request: URLRequest(url: self.leader.website.url))
+                    //self.showWebsiteModal = false
+                    .navigationBarTitle("\(self.leader.website)")
+                    .navigationBarItems(leading: Button(action: {
+                        self.showWebsiteModal = false
+                    })
+                        {
+                            Text("Done")
+                            .fontWeight(.bold)
+                        }
+                )
             }
         }
     }

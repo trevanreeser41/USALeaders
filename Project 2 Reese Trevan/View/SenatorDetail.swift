@@ -45,8 +45,17 @@ struct SenatorDetail: View {
             Image(systemName: "globe")
                 .imageScale(.large)
         }).sheet(isPresented: self.$showWebsiteModal) {
-            Webpage() {
-                self.showWebsiteModal = false
+            NavigationView {
+                Webpage(request: URLRequest(url: self.senator.website.url))
+                .navigationBarTitle("\(self.senator.website)")
+                .navigationBarItems(leading: Button(action: {
+                    self.showWebsiteModal = false
+                })
+                    {
+                        Text("Done")
+                        .fontWeight(.bold)
+                    }
+                )
             }
         }
     }
