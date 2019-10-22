@@ -15,27 +15,31 @@ struct SenatorDetail: View {
     
     var body: some View {
         NavigationView {
+            //Senator image
             VStack {
                 CircleImage(image: senator.image)
                     .offset(y: 0)
                     .padding(.bottom, 0)
+            //Senator information
             VStack(alignment: .leading) {
                 Text(senator.name)
                         .font(.title)
                         .fontWeight(.bold)
-
                     HStack(alignment: .top) {
                         Text("\(senator.entered_office) to \(senator.term_end)")
                             .font(.subheadline)
                         Spacer()
-                        Text("\(senator.state_code)-\(senator.party.capitalized)")
+                    Text("\(senator.state_code)-\(senator.party.capitalized)")
                         .font(.subheadline)
                         .fontWeight(.bold)
                     }
                 }
                 .padding()
-                Text(senator.biography)
-                    .font(.body).padding()
+                //Senator bio
+                List {
+                    Text(senator.biography)
+                        .font(.body).padding()
+                }
             }
         }
         .navigationBarTitle(Text(senator.name), displayMode: .inline)
@@ -45,17 +49,16 @@ struct SenatorDetail: View {
             Image(systemName: "globe")
                 .imageScale(.large)
         }).sheet(isPresented: self.$showWebsiteModal) {
-            NavigationView {
-                Webpage(request: URLRequest(url: self.senator.website.url))
-                .navigationBarTitle("\(self.senator.website)")
-                .navigationBarItems(leading: Button(action: {
+            VStack(alignment: .leading) {
+                Button(action: {
                     self.showWebsiteModal = false
                 })
                     {
                         Text("Done")
                         .fontWeight(.bold)
                     }
-                )
+                .padding()
+                Webpage(request: URLRequest(url: self.senator.website.url))
             }
         }
     }

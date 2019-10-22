@@ -6,6 +6,8 @@
 //  Copyright © 2019 Student. All rights reserved.
 //
 
+
+//Load the website values in Webpage.swift
 import Foundation
 extension String{
     var url: URL{

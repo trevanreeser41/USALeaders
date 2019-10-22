@@ -15,27 +15,31 @@ struct LeaderDetail: View {
     
     var body: some View {
         NavigationView {
+            //President image
             VStack {
                 CircleImage(image: leader.image)
                     .offset(y: 0)
                     .padding(.bottom, 0)
+            //President information
             VStack(alignment: .leading) {
-                    Text(leader.full_name)
-                        .font(.title)
-                        .fontWeight(.bold)
-
-                    HStack(alignment: .top) {
-                        Text("\(leader.took_office) to \(leader.left_office ?? "present")")
-                            .font(.subheadline)
-                        Spacer()
-                        Text(leader.party)
+                Text(leader.full_name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                HStack(alignment: .top) {
+                    Text("\(leader.took_office) to \(leader.left_office ?? "present")")
+                        .font(.subheadline)
+                    Spacer()
+                    Text(leader.party)
                         .font(.subheadline)
                         .fontWeight(.bold)
                     }
                 }
                 .padding()
-                Text(leader.biography)
-                    .font(.body).padding()
+                //President bio
+                List {
+                    Text(leader.biography)
+                        .font(.body).padding()
+                }
             }
         }
         .navigationBarTitle(Text(leader.full_name), displayMode: .inline)
@@ -45,18 +49,16 @@ struct LeaderDetail: View {
             Image(systemName: "globe")
                 .imageScale(.large)
         }).sheet(isPresented: self.$showWebsiteModal) {
-            NavigationView {
+            VStack(alignment: .leading) {
+                Button(action: {
+                    self.showWebsiteModal = false
+                })
+                    {
+                        Text("Done")
+                        .fontWeight(.bold)
+                    }
+                .padding()
                 Webpage(request: URLRequest(url: self.leader.website.url))
-                    //self.showWebsiteModal = false
-                    .navigationBarTitle("\(self.leader.website)")
-                    .navigationBarItems(leading: Button(action: {
-                        self.showWebsiteModal = false
-                    })
-                        {
-                            Text("Done")
-                            .fontWeight(.bold)
-                        }
-                )
             }
         }
     }

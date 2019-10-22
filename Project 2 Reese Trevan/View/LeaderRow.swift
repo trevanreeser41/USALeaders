@@ -12,6 +12,7 @@ struct LeaderRow: View {
     var leader: Leader
     
     var body: some View {
+        //Senator image and information
         HStack {
             leader.image
                 .resizable()

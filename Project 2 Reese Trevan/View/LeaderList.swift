@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//MARK: - Tabs
 struct LeaderList: View {
     var body: some View {
         TabView {
@@ -33,16 +34,18 @@ struct LeaderList: View {
     }
 }
 
+//MARK: - Previews
 struct LeaderList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max", "iPad Pro (11-inch)"], id: \.self) { deviceName in
             LeaderList()
                 .previewDevice(PreviewDevice(rawValue: deviceName))
-            .previewDisplayName(deviceName)
+                .previewDisplayName(deviceName)
         }
     }
 }
 
+//MARK: - Lists
 struct LeaderListView: View {
     var body: some View {
         NavigationView {

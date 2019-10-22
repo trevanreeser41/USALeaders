@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
+//pulls from senator.json
 struct Senator: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
@@ -24,6 +25,7 @@ struct Senator: Hashable, Codable, Identifiable {
     var website: String
 }
 
+//loads image from photo_url in Data.swift
 extension Senator {
    var image: Image {
        ImageStore.shared.image(name: photo_url)

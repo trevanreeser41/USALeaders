@@ -15,10 +15,12 @@ struct GovernorDetail: View {
     
     var body: some View {
         NavigationView {
+            //Governor image
             VStack {
                 CircleImage(image: governor.image)
                     .offset(y: 0)
                     .padding(.bottom, 0)
+            //Governor information
             VStack(alignment: .leading) {
                 HStack {
                     Text(governor.name)
@@ -28,19 +30,21 @@ struct GovernorDetail: View {
                     Text(governor.state_name)
                         .font(.headline)
                 }
-
                 HStack(alignment: .top) {
                     Text("\(governor.entered_office) to \(governor.term_end)")
                         .font(.subheadline)
                     Spacer()
                     Text(governor.party.capitalized)
-                    .font(.footnote)
-                    .foregroundColor(.gray)
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                    }
                 }
-            }
-            .padding()
-            Text(governor.biography)
-                .font(.body).padding()
+                .padding()
+                //Governor bio
+                List {
+                    Text(governor.biography)
+                        .font(.body).padding()
+                }
             }
         }
         .navigationBarTitle(Text(governor.name), displayMode: .inline)
@@ -50,18 +54,16 @@ struct GovernorDetail: View {
             Image(systemName: "globe")
                 .imageScale(.large)
         }).sheet(isPresented: self.$showWebsiteModal) {
-            NavigationView {
-                Webpage(request: URLRequest(url: self.governor.website.url))
-                    //self.showWebsiteModal = false
-                .navigationBarTitle("\(self.governor.website)")
-                .navigationBarItems(leading: Button(action: {
+            VStack(alignment: .leading) {
+                Button(action: {
                     self.showWebsiteModal = false
                 })
-                {
-                    Text("Done")
-                    .fontWeight(.bold)
-                }
-                )
+                    {
+                        Text("Done")
+                        .fontWeight(.bold)
+                    }
+                .padding()
+                Webpage(request: URLRequest(url: self.governor.website.url))
             }
         }
     }

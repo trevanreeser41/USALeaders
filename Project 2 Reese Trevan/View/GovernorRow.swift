@@ -13,28 +13,26 @@ struct GovernorRow: View {
     var governor: Governor
 
     var body: some View {
-        //VStack( alignment: .leading){
-            HStack{
-                governor.image
-                .resizable()
-                .frame(width: 50, height: 50)
-                VStack( alignment: .leading){
-                    HStack {
-                      
-                        Text(governor.name)
-                            .bold()
-                        Spacer()
-                    }
-                    HStack {
+        //Governor image and information
+        HStack{
+            governor.image
+            .resizable()
+            .frame(width: 50, height: 50)
+            VStack( alignment: .leading){
+                HStack {
+                    Text(governor.name)
+                        .bold()
+                    Spacer()
+                }
+                HStack {
                     Text(governor.state_name)
                         .font(.subheadline)
-                        Text(governor.party.capitalized)
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                    }
+                    Text(governor.party.capitalized)
+                        .font(.footnote)
+                        .foregroundColor(.gray)
                 }
             }
-      //  }
+        }
     }
 }
 

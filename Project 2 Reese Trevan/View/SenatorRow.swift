@@ -12,6 +12,7 @@ struct SenatorRow: View {
     var senator: Senator
     
     var body: some View {
+        //Senator thumbnail and information
         HStack {
             senator.image
                 .resizable()

@@ -9,6 +9,7 @@
 import SwiftUI
 import CoreLocation
 
+//pulls from leader.json
 struct Leader: Hashable, Codable, Identifiable {
     var id: Int
     var full_name: String
@@ -22,6 +23,7 @@ struct Leader: Hashable, Codable, Identifiable {
     var website: String
 }
 
+//loads image from photo_url in Data.swift
 extension Leader {
    var image: Image {
        ImageStore.shared.image(name: image_name)

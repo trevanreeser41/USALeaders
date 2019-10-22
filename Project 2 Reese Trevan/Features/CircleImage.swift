@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//Format and size the image loaded from the data
 struct CircleImage: View {
     var image: Image
 

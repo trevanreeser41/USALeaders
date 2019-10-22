@@ -498,7 +498,7 @@
 		3F955E1B2357CBB100356223 /* LeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderRow.swift; sourceTree = "<group>"; };
 		3F955E212357D5DC00356223 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3F955E802357E7E900356223 /* LeaderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderList.swift; sourceTree = "<group>"; };
-		3FC20AA82356193A00DA7EC4 /* Project 2 Reese Trevan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 2 Reese Trevan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC20AA82356193A00DA7EC4 /* USA Leaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USA Leaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC20AAB2356193A00DA7EC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FC20AAD2356193A00DA7EC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3FC20AAF2356193A00DA7EC4 /* LeaderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderDetail.swift; sourceTree = "<group>"; };
@@ -825,7 +825,7 @@
 		3FC20AA92356193A00DA7EC4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3FC20AA82356193A00DA7EC4 /* Project 2 Reese Trevan.app */,
+				3FC20AA82356193A00DA7EC4 /* USA Leaders.app */,
 				3FC20ABE2356193C00DA7EC4 /* Project 2 Reese TrevanTests.xctest */,
 				3FC20AC92356193C00DA7EC4 /* Project 2 Reese TrevanUITests.xctest */,
 			);
@@ -902,7 +902,7 @@
 			);
 			name = "Project 2 Reese Trevan";
 			productName = "Project 2 Reese Trevan";
-			productReference = 3FC20AA82356193A00DA7EC4 /* Project 2 Reese Trevan.app */;
+			productReference = 3FC20AA82356193A00DA7EC4 /* USA Leaders.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3FC20ABD2356193C00DA7EC4 /* Project 2 Reese TrevanTests */ = {
@@ -1424,7 +1424,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "T.Project-2-Reese-Trevan";
-				PRODUCT_NAME = "Project 2 Reese Trevan";
+				PRODUCT_NAME = "USA Leaders";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1444,7 +1444,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "T.Project-2-Reese-Trevan";
-				PRODUCT_NAME = "Project 2 Reese Trevan";
+				PRODUCT_NAME = "USA Leaders";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
